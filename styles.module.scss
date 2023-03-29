@@ -1,0 +1,13 @@
+@import './theme.scss';
+
+.SafeArea {
+  min-height: 100%;
+}
+
+.Container {
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background: $color-dark-200;
+}

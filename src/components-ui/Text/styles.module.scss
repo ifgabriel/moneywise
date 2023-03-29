@@ -1,0 +1,39 @@
+@import '../../../theme.scss';
+
+.Text {
+}
+
+//size
+.small {
+  font-size: 14px;
+}
+
+.medium {
+  font-size: 16px;
+}
+
+.big {
+  font-size: 22px;
+}
+
+.giant {
+  font-size: 24px;
+}
+
+//color
+.white {
+  color: $color-white;
+}
+
+.primary {
+  color: $color-primary-100;
+}
+
+.gray {
+  color: $color-gray-100;
+}
+
+//weight
+.bold {
+  font-weight: bold;
+}

@@ -1,0 +1,52 @@
+@import '../../../theme.scss';
+
+.Portfolio {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border-radius: 24px;
+
+  padding: 24px;
+  height: 400px;
+  width: 250px;
+
+  margin-right: 30px;
+}
+
+.Image {
+  border-radius: 4px;
+  padding: 16px;
+  height: 40px;
+  width: 40px;
+  background: #FFFFFF29;
+}
+
+.Type {
+  right: -80px;
+  top: -43px;
+
+  transform: rotate(90deg)
+}
+
+.Values {
+  padding: 8px;
+  border-radius: 8px;
+  background: #FFFFFF29;
+}
+
+.GFX {
+  background: $color-primary-100;
+}
+
+.ETTT {
+  background: $color-primary-200;
+}
+
+.ESD {
+  background: $color-secondary-100;
+}
+
+.SDE {
+  background: $color-tertiary-100;
+}
