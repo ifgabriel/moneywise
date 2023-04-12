@@ -4,7 +4,7 @@ import styles from './styles.module.scss'
 
 interface ComponentProps extends TextProps {
   size: 'small' | 'medium' | 'big' | 'giant'
-  color: 'white' | 'gray' | 'primary'
+  color: 'white' | 'gray' | 'primary' | 'green' | 'red'
   weight?: 'bold' | 'none'
 }
 

@@ -1,1 +1,1 @@
-export { default as handleJoinClasses } from './handleJoinClasses'
+export { default as getClassesStyle } from './getClassesStyle'
