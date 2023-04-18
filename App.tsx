@@ -1,5 +1,6 @@
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { ScrollView, SafeAreaView, StatusBar, View } from 'react-native'
+import { NativeBaseProvider, extendTheme } from 'native-base'
 
 import { Dashboard } from './src/pages'
 import { Header } from './src/components-ui'
@@ -8,8 +9,9 @@ import styles from './styles.module.scss'
 
 import { ThemeProvider, createTheme } from '@rneui/themed'
 
-const theme = createTheme({
-  lightColors: {
+
+const theme2 = extendTheme({
+  colors: {
     'primary-100': '#FF7955',
     'primary-200': '#FEA97B',
     'secondary-100': '#fc8260',
@@ -22,11 +24,14 @@ const theme = createTheme({
     green: '#2ae678',
     red: '#e62a2a',
   },
-  mode: 'light',
+  config: {
+    // Changing initialColorMode to 'dark'
+    initialColorMode: 'dark',
+  },
 })
 
 const App = () => (
-  <ThemeProvider theme={theme}>
+  <NativeBaseProvider theme={theme2}>
     <SafeAreaProvider>
       <SafeAreaView style={styles.SafeArea}>
         <StatusBar />
@@ -38,7 +43,7 @@ const App = () => (
         </ScrollView>
       </SafeAreaView>
     </SafeAreaProvider>
-  </ThemeProvider>
+  </NativeBaseProvider>
 )
 
 export default App

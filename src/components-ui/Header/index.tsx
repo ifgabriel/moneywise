@@ -1,6 +1,6 @@
 import { View } from 'react-native'
 import { Bell } from 'lucide-react-native'
-import { Button, useTheme } from '@rneui/themed'
+import { Button } from '@rneui/themed'
 
 import Text from '../Text'
 import styles from './styles.module.scss'
@@ -10,18 +10,17 @@ interface CardProps {
 }
 
 const Header = ({ name }: CardProps) => {
-  const { theme } = useTheme()
 
   return (
     <View style={styles.Header}>
       <Text size='giant' color='white'>
-        Hello,{' '}
+        Olá,{' '}
         <Text size='giant' color='white' weight='bold'>
           {name}!
         </Text>
       </Text>
-      <Button radius='xl' color={theme.colors['primary-100']}>
-        <Bell color={theme.colors['dark-100']} />
+      <Button radius='xl' >
+        <Bell />
       </Button>
     </View>
   )
