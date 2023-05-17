@@ -1,29 +1,14 @@
-import { View } from 'react-native'
-import { Bell } from 'lucide-react-native'
-import { Button, useTheme } from '@rneui/themed'
+import { Heading, Box } from 'native-base'
 
-import Text from '../Text'
-import styles from './styles.module.scss'
+const Header = () => (
+  <Box paddingY={8}>
+    <Heading fontSize='2xl' color='white'>
+      Hello,{' '}
+      <Heading fontSize='3xl' color='primary-100'>
+       Gabriel!
+      </Heading>
+    </Heading>
+  </Box>
+)
 
-interface CardProps {
-  name: string
-}
-
-const Header = ({ name }: CardProps) => {
-  const { theme } = useTheme()
-
-  return (
-    <View style={styles.Header}>
-      <Text size='giant' color='white'>
-        Hello,{' '}
-        <Text size='giant' color='white' weight='bold'>
-          {name}!
-        </Text>
-      </Text>
-      <Button radius='xl' color={theme.colors['primary-100']}>
-        <Bell color={theme.colors['dark-100']} />
-      </Button>
-    </View>
-  )
-}
 export default Header

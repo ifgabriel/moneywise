@@ -15,7 +15,7 @@ module.exports = {
     'max-len': [
       'error',
       {
-        code: 100,
+        code: 80,
         ignoreTemplateLiterals: true,
         ignoreStrings: true,
       },
@@ -38,7 +38,6 @@ module.exports = {
         'newlines-between': 'always',
       },
     ],
-    'no-console': ['error'],
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-explicit-any': 'off',

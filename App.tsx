@@ -1,20 +1,18 @@
 import { SafeAreaProvider } from 'react-native-safe-area-context'
-import { ScrollView, SafeAreaView, StatusBar, View } from 'react-native'
-
+import { ScrollView, StatusBar, SafeAreaView } from 'react-native'
+import { NativeBaseProvider, extendTheme, Container } from 'native-base'
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 import { Dashboard } from './src/pages'
 import { Header } from './src/components-ui'
 
-import styles from './styles.module.scss'
-
-import { ThemeProvider, createTheme } from '@rneui/themed'
-
-const theme = createTheme({
-  lightColors: {
+const theme = extendTheme({
+  colors: {
     'primary-100': '#FF7955',
     'primary-200': '#FEA97B',
     'secondary-100': '#fc8260',
     'tertiary-100': '#faa375',
     'gray-100': '#9B9B9B',
+    'dark-000': '#1F1F1F',
     'dark-100': '#262626',
     'dark-200': '#303030',
     dark: '#292D32',
@@ -22,23 +20,29 @@ const theme = createTheme({
     green: '#2ae678',
     red: '#e62a2a',
   },
-  mode: 'light',
+  config: {
+    initialColorMode: 'dark',
+  },
 })
 
+const queryClient = new QueryClient()
+
 const App = () => (
-  <ThemeProvider theme={theme}>
-    <SafeAreaProvider>
-      <SafeAreaView style={styles.SafeArea}>
-        <StatusBar />
-        <ScrollView style={styles.Container}>
-          <Header name='Gabriel' />
-          <View style={styles.Content}>
-            <Dashboard />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </SafeAreaProvider>
-  </ThemeProvider>
+  <QueryClientProvider client={queryClient}>
+    <NativeBaseProvider theme={theme}>
+      <SafeAreaProvider>
+        <SafeAreaView>
+          <StatusBar />
+          <ScrollView>
+            <Container backgroundColor='dark-000' paddingX='4' maxW='full'>
+              <Header />
+              <Dashboard />
+            </Container>
+          </ScrollView>
+        </SafeAreaView>
+      </SafeAreaProvider>
+    </NativeBaseProvider>
+  </QueryClientProvider>
 )
 
 export default App

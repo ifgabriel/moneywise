@@ -1,13 +1,12 @@
-import { View, ViewProps } from 'react-native'
+import { Text, Box } from 'native-base'
 
-import Text from '../Text'
 import styles from './styles.module.scss'
 
 interface PortfolioProps {
   name: string,
-  abbreviations: string,
   value: string,
   percent: string
+  abbreviations: string,
 }
 
 const Portfolio = ({
@@ -16,29 +15,29 @@ const Portfolio = ({
   value,
   percent,
 }: PortfolioProps) => (
-  <View style={[styles.Portfolio, styles[abbreviations]]}>
-    <View style={styles.Image}>
-      <Text size='medium' color='white'>
+  <Box style={[styles.Portfolio, styles[abbreviations]]}>
+    <Box style={styles.Image}>
+      <Text fontSize='md' color='white'>
         IMAGE
       </Text>
-    </View>
-    <View style={styles.Type}>
-      <Text size='medium' color='white'>
+    </Box>
+    <Box style={styles.Type}>
+      <Text fontSize='lg' color='white'>
         {name}
       </Text>
-      <Text size='medium' color='white'>
+      <Text fontSize='lg' color='white'>
         ({abbreviations})
       </Text>
-    </View>
-    <View style={styles.Values}>
-      <Text size='giant' color='white'>
+    </Box>
+    <Box style={styles.Values}>
+      <Text fontSize='xl' color='white'>
         R$ {value}
       </Text>
-      <Text size='medium' color='white'>
+      <Text fontSize='lg' color='white'>
         {percent}
       </Text>
-    </View>
-  </View>
+    </Box>
+  </Box>
 )
 
 export default Portfolio

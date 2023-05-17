@@ -1,13 +1,8 @@
-import { View, ViewProps } from 'react-native'
-import { getClassesStyle } from 'src/utils'
-import styles from './styles.module.scss'
+import { ViewProps } from 'react-native'
+import { Box } from 'native-base'
 
-interface CardProps extends ViewProps {
-  className?: string,
-}
-
-const Card = ({style, ...props}: CardProps) => (
-  <View style={[styles.Card, style]} {...props} />
+const Card = (props: ViewProps) => (
+  <Box padding={4} backgroundColor='dark-100' minW='100%'  {...props} />
 )
 
 export default Card

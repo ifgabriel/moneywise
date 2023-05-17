@@ -1,31 +1,41 @@
-import { Button } from '@rneui/base'
-import { useTheme } from '@rneui/themed'
-import { PlusIcon } from 'lucide-react-native'
-import { View, ScrollView } from 'react-native'
-import { Card, Text, Portfolio } from '../../components-ui'
-import styles from './styles.module.scss'
+import { useState } from 'react'
+import { ScrollView } from 'react-native'
+import { Text, Button, AddIcon, HStack, Heading, Box } from 'native-base'
+
+import { Card, Portfolio, Form } from '../../components-ui'
 
 const Dashboard = () => {
-  const { theme } = useTheme()
+  const [formVisibility, setFormVisibility] = useState(false)
+
   return (
-    <View>
+    <Box>
       <Card>
-        <View style={styles.DashboardTitle}>
-          <Text size='small' color='gray' style={styles.Categorie}>
-            Corrente
-          </Text>
-          <Button type='outline' radius='md'>
-            <PlusIcon color={theme.colors['primary-100']} />
+        <HStack justifyContent='space-between'>
+          <Text fontSize='md'>Corrente</Text>
+          <Button
+            size='sm'
+            backgroundColor='dark-100'
+            borderWidth='1'
+            width='10'
+            height='10'
+            borderColor='primary-100'
+            onPress={() => setFormVisibility(true)}
+          >
+            <AddIcon size={4} color='primary-100' />
           </Button>
-        </View>
-        <Text size='giant' color='white'>
+        </HStack>
+        <Text fontSize='2xl' fontWeight='600'>
           R$10.713,95
         </Text>
-      </Card>
-      <View style={styles.Scroll}>
-        <Text size='medium' color='white' weight='bold' style={styles.TitleSection}>
-          Categorias
+        <Text fontSize='lg'>
+          + 45,66%
         </Text>
+        {formVisibility && <Form onClose={() => setFormVisibility(false)} />}
+      </Card>
+      <Box paddingY={8}>
+        <Heading fontSize='xl' color='white' mb={8}>
+          Gastos
+        </Heading>
         <ScrollView horizontal={true}>
           <Portfolio
             name='Gastos Fixos'
@@ -42,8 +52,8 @@ const Dashboard = () => {
           <Portfolio name='Estudos' abbreviations='ESD' value='822,00' percent='+50,35 (1.25%)' />
           <Portfolio name='Saúde' abbreviations='SDE' value='525,23' percent='+45,35 (-24.25%)' />
         </ScrollView>
-      </View>
-    </View>
+      </Box>
+    </Box>
   )
 }
 
