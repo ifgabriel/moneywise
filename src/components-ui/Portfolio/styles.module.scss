@@ -7,11 +7,17 @@
 
   border-radius: 24px;
 
-  padding: 24px;
+  overflow: hidden;
   height: 400px;
   width: 250px;
 
   margin-right: 30px;
+}
+
+.Shadow {
+  height: 400px;
+  width: 250px;
+  background: #0000003f;
 }
 
 .Image {
@@ -22,31 +28,16 @@
   background: #FFFFFF29;
 }
 
-.Type {
-  right: -80px;
-  top: -43px;
-
-  transform: rotate(90deg)
+.Flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .Values {
+  margin-top: 115%;
   padding: 8px;
   border-radius: 8px;
   background: #FFFFFF29;
-}
-
-.GFX {
-  background: $color-primary-100;
-}
-
-.ETTT {
-  background: $color-primary-200;
-}
-
-.ESD {
-  background: $color-secondary-100;
-}
-
-.SDE {
-  background: $color-tertiary-100;
 }
