@@ -1,47 +1,59 @@
 module.exports = {
-  root: true,
-  parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'import'],
   env: {
-    node: true,
-    es6: true,
+    browser: true,
+    es2021: true,
+    jest: true,
   },
+  extends: [
+    'standard',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:prettier/recommended',
+  ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2019,
-    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true
+    },
+    ecmaVersion: 'latest',
+    sourceType: 'module'
   },
-  extends: ['eslint:recommended', 'plugin:prettier/recommended'],
+  plugins: [
+    'react',
+    'jsx-a11y',
+    '@typescript-eslint'
+  ],
   rules: {
-    'max-len': [
-      'error',
+    'prettier/prettier': ["error", {
+      'printWidth': 80,
+      'tabWidth': 2,
+      'singleQuote': true,
+      'trailingComma': 'all',
+      'arrowParens': 'always',
+      'semi': false,
+      'endOfLine': 'auto',
+    }],
+    'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
+    'jsx-a11y/alt-text': [
+      'warn',
       {
-        code: 80,
-        ignoreTemplateLiterals: true,
-        ignoreStrings: true,
+        elements: ['img'],
+        img: ['Image'],
       },
     ],
-    'arrow-body-style': ['error', 'as-needed'],
-    'eol-last': ['error', 'always'],
-    quotes: ['error', 'single', { avoidEscape: true }],
-    'comma-spacing': ['error', { before: false, after: true }],
-    semi: ['error', 'never'],
-    'space-in-parens': ['error', 'never'],
-    'keyword-spacing': ['error', { before: true, after: true }],
-    'array-bracket-spacing': ['error', 'never'],
-    'object-curly-spacing': ['error', 'always'],
-    'import/prefer-default-export': 0,
-    'import/no-extraneous-dependencies': 'off',
-    'import/order': [
-      'error',
-      {
-        groups: ['external', 'internal', 'parent', 'sibling', 'index'],
-        'newlines-between': 'always',
-      },
-    ],
-    '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/ban-ts-ignore': 'off',
-    '@typescript-eslint/no-empty-function': 'off',
+    'jsx-a11y/aria-props': 'warn',
+    'jsx-a11y/aria-proptypes': 'warn',
+    'jsx-a11y/aria-unsupported-elements': 'warn',
+    'jsx-a11y/role-has-required-aria-props': 'warn',
+    'jsx-a11y/role-supports-aria-props': 'warn',
   },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+    'import/parsers': {
+      [require.resolve('@typescript-eslint/parser')]: ['.ts', '.tsx', '.d.ts'],
+    },
+  }
 }

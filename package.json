@@ -6,23 +6,23 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
+    "lint": "eslint src --fix",
     "web": "expo start --web"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.29.5",
     "axios": "^1.4.0",
     "expo": "~48.0.9",
+    "expo-linear-gradient": "^12.1.2",
     "expo-status-bar": "~1.4.4",
     "native-base": "^3.4.28",
-    "node-sass": "^8.0.0",
     "react": "18.2.0",
     "react-hook-form": "^7.43.9",
     "react-native": "0.71.4",
+    "react-native-currency-input": "^1.1.0",
     "react-native-safe-area-context": "3.3.2",
     "react-native-sass-transformer": "^2.0.0",
-    "react-native-svg": "13.4.0",
-    "sass": "^1.60.0",
-    "yup": "^1.1.1"
+    "react-native-svg": "13.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -31,13 +31,16 @@
     "@types/react": "^18.0.29",
     "@types/react-native": "^0.69.1",
     "@types/react-test-renderer": "^18.0.0",
-    "eslint": "^8.36.0",
+    "babel-plugin-module-resolver": "^5.0.0",
+    "eslint": "8.36.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.7.1",
     "tslint": "^6.1.3",
     "typescript": "^4.9.4"
   },
   "resolutions": {
     "styled-components": "^5"
-  },
-  "private": true
+  }
 }

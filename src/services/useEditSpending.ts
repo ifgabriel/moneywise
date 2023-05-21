@@ -1,20 +1,21 @@
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { SpendingType } from 'data'
 import { Api } from '../http'
+import { endpoints } from './endpoints'
 
 interface Params {
-  body?: string
+  type: SpendingType,
+  value: number
 }
 
-const useEditSpending = ({ body }: Params) => useMutation(() => Api.patch('/spending', {
-  wage: 100,
-  food: 150.5,
-  health: 1000.5,
-  studies: 200.4,
-  entertainment: 350.53,
-  fixedExpenses: 2050.49,
-}), {
-  onSuccess: (data) => console.log('onSuccess', data),
-  onError: (data) => console.log('onError', data)
-})
+const useEditSpending = () => {
+  const client = useQueryClient()
+
+  return useMutation(({type, value}: Params) => Api.patch(endpoints.editSpending, {[type]: value}), {
+    onSuccess: (data) => {
+      client.invalidateQueries(['get-spending'])
+    }
+  })
+}
 
 export default useEditSpending

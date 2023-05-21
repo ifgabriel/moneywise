@@ -13,7 +13,7 @@
     "strict": true,
     "target": "esnext",
     "skipLibCheck": true,
-    "baseUrl": ".",
+    "baseUrl": "src",
     "types": [
       "jest",
       "styled-components-react-native"
@@ -22,10 +22,13 @@
       {
         "name": "typescript-plugin-css-modules",
       }
-    ]
+    ],
   },
   "exclude": [
     "node_modules"
   ],
-  "extends": "expo/tsconfig.base"
+  "include": [
+    "src"
+  ],
+  "extends": "expo/tsconfig.base",
 }

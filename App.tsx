@@ -1,10 +1,9 @@
-import { SafeAreaView } from 'react-native'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { StatusBar } from 'expo-status-bar'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
-import { NativeBaseProvider, extendTheme, Container, ScrollView } from 'native-base'
-import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
-import { Dashboard } from './src/pages'
+import { Container, NativeBaseProvider, ScrollView, extendTheme } from 'native-base'
+import { SafeAreaView } from 'react-native'
 import { Header } from './src/components-ui'
+import { Dashboard } from './src/pages'
 
 const theme = extendTheme({
   colors: {
@@ -31,17 +30,15 @@ const queryClient = new QueryClient()
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <NativeBaseProvider theme={theme}>
-      <SafeAreaProvider>
-        <SafeAreaView>
-          <StatusBar style="light" backgroundColor="#1F1F1F" />
-          <ScrollView>
-            <Container backgroundColor='dark-000' paddingX='4' maxW='full'>
-              <Header />
-              <Dashboard />
-            </Container>
-          </ScrollView>
-        </SafeAreaView>
-      </SafeAreaProvider>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#1F1F1F' }}>
+        <StatusBar style="light" backgroundColor="#1F1F1F" />
+        <ScrollView>
+          <Container backgroundColor='dark-000' paddingX='4' maxW='full'>
+            <Header />
+            <Dashboard />
+          </Container>
+        </ScrollView>
+      </SafeAreaView>
     </NativeBaseProvider>
   </QueryClientProvider>
 )

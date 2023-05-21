@@ -1,8 +1,8 @@
-import { ViewProps } from 'react-native'
 import { Box } from 'native-base'
+import { ViewProps } from 'react-native'
 
 const Card = (props: ViewProps) => (
-  <Box padding={4} backgroundColor='dark-100' minW='100%'  {...props} />
+  <Box borderRadius={4} padding={4} backgroundColor='dark-100' minW='100%'  {...props} />
 )
 
 export default Card
