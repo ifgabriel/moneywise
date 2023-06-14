@@ -61,8 +61,16 @@ const Balance = () => {
           </>
         ),
         loading: <Skeleton h="40" />,
-        error: 'Error',
-        empty: 'Vazio'
+        error: (
+          <Text fontSize='2xl' fontWeight='600'>
+            Infelizmente tivemos um problema...
+          </Text>
+        ),
+        empty: (
+          <Text fontSize='2xl' fontWeight='600'>
+            Cadastre algum valor para iniciarmos
+          </Text>
+        )
       }[getRenderState(isFetched, isError, data)]}
       {data && (
         <Form
